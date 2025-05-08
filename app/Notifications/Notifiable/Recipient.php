@@ -12,4 +12,14 @@ class Recipient
     {
         return ['test@mailtrap.io'];
     }
+
+    public function routeNotificationForSlack(): array
+    {
+        return ['slack_url'];
+    }
+
+    public function routeNotificationForWebhook(): array
+    {
+        return ['webhook_url'];
+    }
 }

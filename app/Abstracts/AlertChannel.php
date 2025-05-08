@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Notification;
 
 abstract class AlertChannel implements AlertChannelInterface
 {
-    // protected abstract function routeNotification(): string;
-
     public function send(string $message, array $context = []): bool
     {
         try {
