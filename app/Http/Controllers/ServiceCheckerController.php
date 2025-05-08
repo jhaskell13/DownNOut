@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Services\ServiceCheckers\GithubServiceChecker;
 use App\Services\ServiceCheckers\HttpServiceChecker;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
 class ServiceCheckerController extends Controller

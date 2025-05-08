@@ -10,5 +10,4 @@ class EmailAlertChannel extends AlertChannel
     {
         return 'mail';
     }
-
 }

@@ -3,9 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Contracts\ServiceChecker;
-use App\Services\ServiceCheckers\GGithubServiceChecker;
-use App\Services\ServiceCheckers\GHttpServiceChecker;
 
 class ServiceCheckerServiceProvider extends ServiceProvider
 {

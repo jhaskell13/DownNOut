@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Services\ServiceCheckers\GithubServiceChecker;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
 
 class CheckGithubHealth extends Command
 {
