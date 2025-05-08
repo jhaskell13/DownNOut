@@ -2,14 +2,13 @@
 
 namespace App\Services\AlertChannels;
 
-use App\Contracts\AlertChannel;
+use App\Abstracts\AlertChannel;
 
-class SlackAlertChannel implements AlertChannel
+class SlackAlertChannel extends AlertChannel
 {
-    public function send(string $message, array $context = []): bool
+    protected function routeNotification(): string
     {
-        // dump("SLACK SENT!");
-        return true;
+        return 'test_slack_url';
     }
 
     public function key(): string

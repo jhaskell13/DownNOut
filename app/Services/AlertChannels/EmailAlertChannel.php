@@ -2,18 +2,18 @@
 
 namespace App\Services\AlertChannels;
 
-use App\Contracts\AlertChannel;
+use App\Abstracts\AlertChannel;
 
-class EmailAlertChannel implements AlertChannel
+class EmailAlertChannel extends AlertChannel
 {
-    public function send(string $message, array $context = []): bool
+    protected function routeNotification(): string
     {
-        // dump("EMAIL SENT!");
-        return true;
+        return 'test@test.com';
     }
 
     public function key(): string
     {
-        return 'email';
+        return 'mail';
     }
+
 }

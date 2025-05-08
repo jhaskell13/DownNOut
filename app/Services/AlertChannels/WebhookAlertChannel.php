@@ -2,14 +2,13 @@
 
 namespace App\Services\AlertChannels;
 
-use App\Contracts\AlertChannel;
+use App\Abstracts\AlertChannel;
 
-class WebhookAlertChannel implements AlertChannel
+class WebhookAlertChannel extends AlertChannel
 {
-    public function send(string $message, array $context = []): bool
+    protected function routeNotification(): string
     {
-        // dump("WEBHOOK SENT!");
-        return true;
+        return 'webhook_url';
     }
 
     public function key(): string

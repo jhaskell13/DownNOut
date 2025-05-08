@@ -2,8 +2,8 @@
 
 return [
     'channels' => [
-        'email' => true,
-        'slack' => true,
-        'webhook' => true,
+        'mail' => true,
+        'slack' => false,
+        'webhook' => false,
     ],
 ];

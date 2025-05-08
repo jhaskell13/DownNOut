@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Contracts\AlertChannelInterface;
 use App\Events\ServiceDownDetected;
-use App\Jobs\SendServiceDownAlertThroughChannel;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -25,12 +25,12 @@ class SendServiceDownAlert
         $channels = app()->tagged('alert.channel');
 
         foreach ($channels as $channel) {
-            if (config("alertchannel.channels.{$channel->key()}")) {
-                SendServiceDownAlertThroughChannel::dispatch(
-                    get_class($channel),
-                    $event->message,
-                    $event->context,
-                );
+            if (! $channel || ! $channel instanceof AlertChannelInterface) {
+                throw new \Exception("Invalid or unsupported channel [{$channel->key()}] given.");
+            }
+
+            if (config("alertchannel.channels.{$channel->key()}")) {        
+                $channel->send($event->message, $event->context);
             }
         }
     }
