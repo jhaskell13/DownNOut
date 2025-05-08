@@ -10,7 +10,7 @@ class HttpServiceChecker implements ServiceChecker
 {
     public function check(?string $url): JsonResponse
     {
-        $message = 'The service is unresponsive.';
+        $message  = 'The service is unresponsive.';
         $response = Http::timeout(5)->get($url);
 
         if ($response->successful()) {
@@ -19,8 +19,8 @@ class HttpServiceChecker implements ServiceChecker
 
         return response()->json([
             'message' => $message,
-            'status' => $response->status(),
-            'body' => json_decode($response->body()),
+            'status'  => $response->status(),
+            'body'    => json_decode($response->body()),
         ]);
     }
 }

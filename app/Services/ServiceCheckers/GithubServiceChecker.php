@@ -15,31 +15,31 @@ class GithubServiceChecker implements ServiceChecker
         $response = Http::timeout(5)->get($url);
 
         if ($response->successful()) {
-            $body = json_decode($response->body());
+            $body    = json_decode($response->body());
             $message = 'All Github services are operational';
-            $status = ServiceStatus::Operational->value;
+            $status  = ServiceStatus::Operational->value;
 
             $failingServices = collect($body->components)
                 ->reject(fn ($component) => $component->status === ServiceStatus::Operational->value) // Filter out operational components
                 ->map(fn ($component) => [
-                    'id' => $component->id,
+                    'id'        => $component->id,
                     'component' => $component->name,
-                    'status' => $component->status,
+                    'status'    => $component->status,
                 ]);
 
             if (! $failingServices->isEmpty()) {
                 ServiceDownDetected::dispatch(
                     $message = 'One or more Github services are unresponsive.',
                     [
-                        'status' => $status = ServiceStatus::Unresponsive->value,
+                        'status'           => $status = ServiceStatus::Unresponsive->value,
                         'failing_services' => $failingServices,
                     ],
                 );
             }
 
             return response()->json([
-                'message' => $message,
-                'status' => $status,
+                'message'          => $message,
+                'status'           => $status,
                 'failing_services' => $failingServices,
             ]);
         }
