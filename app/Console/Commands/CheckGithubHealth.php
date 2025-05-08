@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\GithubServiceChecker;
+use App\Services\ServiceCheckers\GithubServiceChecker;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 

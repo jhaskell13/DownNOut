@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\EmailAlertChannel;
-use App\Services\SlackAlertChannel;
-use App\Services\WebhookAlertChannel;
+use App\Services\AlertChannels\EmailAlertChannel;
+use App\Services\AlertChannels\SlackAlertChannel;
+use App\Services\AlertChannels\WebhookAlertChannel;
 use Illuminate\Support\ServiceProvider;
 
 class AlertChannelServiceProvider extends ServiceProvider

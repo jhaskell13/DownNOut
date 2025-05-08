@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\ServiceCheckers;
 
 use App\Contracts\ServiceChecker;
 use Illuminate\Http\JsonResponse;
