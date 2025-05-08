@@ -20,7 +20,7 @@ class GithubServiceChecker implements ServiceChecker
             $status = ServiceStatus::Operational->value;
 
             $failingServices = collect($body->components)
-                ->reject(fn ($component) => $component->status != ServiceStatus::Operational->value) // Filter out operational components
+                ->reject(fn ($component) => $component->status === ServiceStatus::Operational->value) // Filter out operational components
                 ->map(fn ($component) => [
                     'id' => $component->id,
                     'component' => $component->name,
