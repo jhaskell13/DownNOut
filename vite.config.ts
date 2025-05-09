@@ -12,9 +12,6 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
-    css: {
-        postcss: './postcss.config.js',
-    },
     resolve: {
         alias: {
             '@': '/resources/js',
