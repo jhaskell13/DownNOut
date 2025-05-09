@@ -1,13 +1,31 @@
-## Down N Out
+# Down N Out
 
-### A simple monitoring and outage reporting system for various services.
+Down N Out is a platform and API designed to monitor various services and determine their status. If any service is unresponsive or down, the system will send alerts through configured channels, including email, Slack, and webhooks. The project is still in its early stages and currently supports only monitoring of GitHub components.
 
-The current implementation only checks Github services via their API and will send an email to admins. 
-This project is mainly a learning tool to master Laravel's service container, events, and queue. 
+## Features
 
-Further versions will come with the following:
-    - Slack and Webhook notifications
-    - Http checker to check statuses of configured url addresses
-    - Cached rate limiting
-    - Further security enhancements
-    - And more!
+- **Service Monitoring**: Currently monitors GitHub components via their API.
+- **Alerting**: Sends alerts via email (more channels to be added in future).
+- **Frontend**: A simple table displaying the latest alerts.
+
+## Technologies
+
+- **Backend**: Laravel
+- **Frontend**: Vue 3 (with Inertia.js)
+- **Queue System**: Laravel Queues (for processing alerts)
+- **Database**: SQLite (or any database supported by Laravel)
+- **Tailwind CSS**: For styling the frontend
+
+## Current Implementation
+
+- **Service Checker**: Uses GitHub's API to check the status of specific components.
+- **Alerts**: Currently, alerts are sent via email when a GitHub service is unresponsive.
+- **Frontend Table**: Displays a list of the latest alerts sent.
+
+## Contributing
+
+Feel free to fork the project, open issues, and submit pull requests. Contributions are welcome!
+
+## License
+
+This project is open-source and available under the MIT License.
