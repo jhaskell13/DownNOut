@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ServiceCheckerController;
+use App\Http\Controllers\Api\ServiceCheckerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
