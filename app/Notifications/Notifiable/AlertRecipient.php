@@ -4,13 +4,13 @@ namespace App\Notifications\Notifiable;
 
 use Illuminate\Notifications\Notifiable;
 
-class Recipient
+class AlertRecipient
 {
     use Notifiable;
 
     public function routeNotificationForMail(): array
     {
-        return ['test@mailtrap.io'];
+        return ['test@mailtrap.io', 'johnny@test.com', 'big_bruce@aol.com'];
     }
 
     public function routeNotificationForSlack(): array

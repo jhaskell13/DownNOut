@@ -28,6 +28,7 @@ class SendServiceDownAlert
             }
 
             if (config("alertchannel.channels.{$channel->key()}")) {
+                $event->context['channel'] = $channel->key();
                 $channel->send($event->message, $event->context);
             }
         }
