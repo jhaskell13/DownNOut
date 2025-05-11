@@ -1,7 +1,13 @@
 <template>
     <section class="m-5">
         <div>
-            Welcome to Down N Out!
+            <h1>Welcome to Down N Out!</h1>
+            <InertiaLink
+                href="/config"
+                class="text-blue-500 underline hover:cursor-pointer"
+            >
+                Configurations
+            </InertiaLink>
         </div>
 
         <InertiaLink
@@ -9,7 +15,7 @@
         >
             &#x21bb;
         </InertiaLink>
-        <table class="w-full border-collapse">
+        <table class="w-full border border-collapse">
             <thead>
                 <tr class="[&>th]:text-left">
                     <th>Alert Channel</th>
