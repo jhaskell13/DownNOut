@@ -11,11 +11,15 @@ class ServiceCheckerController extends Controller
 {
     public function httpStatus(HttpServiceChecker $checker): JsonResponse
     {
-        return $checker->check(request()->input('url'));
+        $status = $checker->check(request()->input('url'));
+
+        return response()->json($status);
     }
 
     public function githubStatus(GithubServiceChecker $checker): JsonResponse
     {
-        return $checker->check();
+        $status = $checker->check();
+
+        return response()->json($status);
     }
 }

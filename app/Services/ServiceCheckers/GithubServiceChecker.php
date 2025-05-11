@@ -5,12 +5,11 @@ namespace App\Services\ServiceCheckers;
 use App\Contracts\ServiceChecker;
 use App\Enums\ServiceStatus;
 use App\Events\ServiceDownDetected;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 
 class GithubServiceChecker implements ServiceChecker
 {
-    public function check(string $url = 'https://www.githubstatus.com/api/v2/components.json'): JsonResponse
+    public function check(string $url = 'https://www.githubstatus.com/api/v2/components.json'): array
     {
         $response = Http::timeout(5)->get($url);
 
@@ -37,11 +36,11 @@ class GithubServiceChecker implements ServiceChecker
                 );
             }
 
-            return response()->json([
+            return [
                 'message'          => $message,
                 'status'           => $status,
                 'failing_services' => $failingServices,
-            ]);
+            ];
         }
     }
 }
